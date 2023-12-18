@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCodeCICD", "LiveCodeCICD\LiveCodeCICD.csproj", "{2B03682E-B280-4568-B4A1-E008491FB4C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalCountingDatabase.Tests", "AnimalCountingDatabase.Tests\AnimalCountingDatabase.Tests.csproj", "{7F8CACDE-4F17-4F7B-B40A-5B031AD9B3C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2B03682E-B280-4568-B4A1-E008491FB4C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B03682E-B280-4568-B4A1-E008491FB4C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B03682E-B280-4568-B4A1-E008491FB4C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F8CACDE-4F17-4F7B-B40A-5B031AD9B3C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F8CACDE-4F17-4F7B-B40A-5B031AD9B3C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F8CACDE-4F17-4F7B-B40A-5B031AD9B3C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F8CACDE-4F17-4F7B-B40A-5B031AD9B3C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
