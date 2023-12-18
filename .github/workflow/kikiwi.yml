@@ -3,8 +3,7 @@ name: 030-dotnet-workflow
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  
 
 jobs:
   build-dotnet-app:
