@@ -1,27 +1,36 @@
-name: ci
+name: 030-dotnet-workflow
 
 on:
   push:
-    branches: main
+    branches: none # [ main ]
+  pull_request:
+    branches: none # [ main ]
+    
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
-  build:
+  build-dotnet-app:
+
     runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: 03-app-dotnet
+
     steps:
-      -
-        name: Checkout 
-        uses: actions/checkout@v3
-     
-      -  
-        name: Setup .Net core 6
-          uses: actions/setup-dotnet@v3
-          with:
-              dotnet-version: '6.0.x'
-      -
-        name: Restore dependencies
-
-           run :dotnet restore
-      -
-        name: build app
-
-           run :dotnet build -c release --no-restore
+    - uses: actions/checkout@v3
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+  
+    - name: Restore dependencies
+      run: dotnet restore
+      
+    - name: Build
+      run: dotnet build --no-restore
+      
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
