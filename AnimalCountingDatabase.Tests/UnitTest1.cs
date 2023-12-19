@@ -16,7 +16,10 @@ namespace AnimalCountingDatabase.Tests
         public async Task IntegrationTest()
         {
             //Create db 
-            var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+            var configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .AddEnvironmentVariables()
+                .Build();
 
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
             optionsBuilder
