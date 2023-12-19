@@ -36,5 +36,6 @@ jobs:
       run: dotnet build -c Release --no-restore
       
     - name: run automated Test
-    
+      env :
+       ConnectionStrings__DefaultConnection: "Server=MOEZ\\SQLEXPRESS;Database=CICDDemo_test;Trusted_Connection=True;TrustServerCertificate=True;User=sa;Password=Password+22"
       run: dotnet test -c Release --no-build --verbosity normal
