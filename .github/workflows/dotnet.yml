@@ -1,7 +1,4 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
-name: .NET
+name: 030-dotnet-workflow
 
 on:
   push:
@@ -10,19 +7,34 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-dotnet-app:
 
     runs-on: ubuntu-latest
+ 
 
     steps:
+    - name: checkout codes
     - uses: actions/checkout@v3
+    
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
+
+    - name: Start SQL Server
+      run: docker run -d -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Password+22" -e "MSSQL_PID=Express" -p 1433:1433 -d mcr.microsoft.com/mssql/server:latest 
+
+    - name: Sleep for 30 seconds
+      uses: jakejarvis/wait-action@master
+      with:
+        time: '5s'
+
     - name: Restore dependencies
       run: dotnet restore
+      
     - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet build -c Release --no-restore
+      
+    - name: run automated Test
+    
+      run: dotnet test -c Release --no-build --verbosity normal
